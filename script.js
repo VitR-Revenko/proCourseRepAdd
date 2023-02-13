@@ -1,10 +1,16 @@
-// 1)
-const mainArr = prompt("Main array length");
-const addArr = prompt("Additional array length");
+const arr = new Array();
 
-const arr = new Array(+mainArr).fill(0)
-  .map((_, mainInd) => new Array(+addArr).fill(0)
-  .map((_, addInd) => prompt(`Element ${addInd} in array ${mainInd}`))
-  );
+function arrCreate() {
+  let mainArray = prompt("Type amount of arrays");
+  for(let i = 0; i < mainArray; i++) {
+      arr.push([]);
+      let addArray = prompt("Type amount of data fields " + i);
+      for(let ind = 0; ind < addArray; ind++) {
+          let data = prompt("Type smthng " + ind);
+          arr[i].push([data]);
+      }
+  }
+  return console.log(arr);
+}
 
-console.log("Result: " + arr);
+arrCreate()
