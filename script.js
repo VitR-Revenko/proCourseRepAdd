@@ -8,23 +8,3 @@ const arr = new Array(+mainArr).fill(0)
   );
 
 console.log("Result: " + arr);
-alert("2 завдання в консолі");
-
-// 2)
-function del(str, [p1, p2]) {
-  let splitString = str.split("");
-  let delParam = [p1, p2];
-
-  for (let i = 0; i < splitString.length; i++) {
-    if (splitString[i] === delParam[0]) {
-      delete splitString[i];
-    }
-    if (splitString[i] === delParam[1]) {
-      delete splitString[i];
-    }
-  }
-
-  return splitString.join("");
-}
-
-console.log(del("hello world", ["l", "d"])); // heo wor
