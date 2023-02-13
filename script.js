@@ -1,36 +1,30 @@
-// 1) Написати функцію, яка приймає 1 параметр. з тим, що передали перший раз і т. д.
-// Все це із замиканнями, наприклад:
-console.log('1)')
+// 1)
+const mainArr = prompt("Main array length");
+const addArr = prompt("Additional array length");
 
-function count(x = 0) {
-  return function(y) {
-    x += y;
-    return x;
-  }
-}
+const arr = new Array(+mainArr).fill(0)
+  .map((_, mainInd) => new Array(+addArr).fill(0)
+  .map((_, addInd) => prompt(`Element ${addInd} in array ${mainInd}`))
+  );
 
-let sum = count();
+console.log("Result: " + arr);
+alert("2 завдання в консолі");
 
-console.log(sum(3));
-console.log(sum(5));
-console.log(sum(20));
+// 2)
+function del(str, [p1, p2]) {
+  let splitString = str.split("");
+  let delParam = [p1, p2];
 
-// 2) Реалізуйте функцію removeElement(array, item), щоб видалити елемент item з масиву array.
-// Наприклад:
-
-console.log('2)')
-
-const array = [1, 2, 3, 4, 5, 6, 7];
-
-function removeElement(array, item) {
-  let del = item - 1;
-  for (let el of array) {
-    if (el === item) {
-      return array.splice(del, 1);
+  for (let i = 0; i < splitString.length; i++) {
+    if (splitString[i] === delParam[0]) {
+      delete splitString[i];
+    }
+    if (splitString[i] === delParam[1]) {
+      delete splitString[i];
     }
   }
+
+  return splitString.join("");
 }
 
-removeElement(array, 5 );
-console.log(array);
-// Результат: [1, 2, 3, 4, 6, 7]
+console.log(del("hello world", ["l", "d"])); // heo wor
