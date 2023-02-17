@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    padding: 40px;
+    background-color: aqua;
+    border: 1px solid black;
+    border-radius: 15%;
+}
+
+.img {
+    width: 1000px;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
