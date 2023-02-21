@@ -35,8 +35,8 @@ buttonNext.addEventListener("click", () => {
   removeShowClass();
   buttonNext.classList.remove(hideClass);
   images[currentIndex + 1].classList.add(showClass);
-  images[currentIndex + 1].hidden = false;
-  images[currentIndex].hidden = true;
+  images[currentIndex + 1].classList.remove(hideClass);
+  images[currentIndex].classList.add(hideClass);
   hideButtons();
 });
 
@@ -49,7 +49,7 @@ buttonPrev.addEventListener("click", () => {
   removeShowClass();
   buttonNext.classList.remove(hideClass);
   images[currentIndex - 1].classList.add(showClass);
-  images[currentIndex - 1].hidden = false;
-  images[currentIndex].hidden = true;
+  images[currentIndex - 1].classList.remove(hideClass);
+  images[currentIndex].classList.add(hideClass);
   hideButtons();
 });
