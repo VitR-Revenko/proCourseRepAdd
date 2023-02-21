@@ -4,52 +4,52 @@ const images = Array.from(document.getElementsByClassName("js-img"));
 const buttonPrev = document.querySelector(".js-btn-prev");
 const buttonNext = document.querySelector(".js-btn-next");
 
-const disabledClass = "disabled";
+const hideClass = "hide";
 const showClass = "show";
 
 function removeShowClass() {
   images.forEach((image) => image.classList.remove(showClass));
 }
 
-function disabledButtons() {
+function hideButtons() {
   const showItem = document.querySelector(".js-img.show");
   const currentIndex = images.indexOf(showItem);
   if (currentIndex + 1 === images.length) {
-    buttonNext.classList.add(disabledClass);
+    buttonNext.classList.add(hideClass);
   } else {
-    buttonNext.classList.remove(disabledClass);
+    buttonNext.classList.remove(hideClass);
   }
   if (currentIndex === 0) {
-    buttonPrev.classList.add(disabledClass);
+    buttonPrev.classList.add(hideClass);
   } else {
-    buttonPrev.classList.remove(disabledClass);
+    buttonPrev.classList.remove(hideClass);
   }
 }
 
 buttonNext.addEventListener("click", () => {
-  if (buttonNext.classList.contains(disabledClass)) {
+  if (buttonNext.classList.contains(hideClass)) {
     return;
   }
   const showItem = document.querySelector(".js-img.show");
   const currentIndex = images.indexOf(showItem);
   removeShowClass();
-  buttonNext.classList.remove(disabledClass);
+  buttonNext.classList.remove(hideClass);
   images[currentIndex + 1].classList.add(showClass);
   images[currentIndex + 1].hidden = false;
   images[currentIndex].hidden = true;
-  disabledButtons();
+  hideButtons();
 });
 
 buttonPrev.addEventListener("click", () => {
-  if (buttonPrev.classList.contains(disabledClass)) {
+  if (buttonPrev.classList.contains(hideClass)) {
     return;
   }
   const showItem = document.querySelector(".js-img.show");
   const currentIndex = images.indexOf(showItem);
   removeShowClass();
-  buttonNext.classList.remove(disabledClass);
+  buttonNext.classList.remove(hideClass);
   images[currentIndex - 1].classList.add(showClass);
   images[currentIndex - 1].hidden = false;
   images[currentIndex].hidden = true;
-  disabledButtons();
+  hideButtons();
 });
